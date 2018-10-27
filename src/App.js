@@ -51,7 +51,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-        <button onClick={this.switchNameHandler}>Click Me!!</button>
+        <button onClick={() => this.switchNameHandler(faker.name.findName(), faker.random.number({max: 100}))}>Click Me!!</button>
         <input type="text" onDoubleClick={this.doubleClickHandler} onWheel={this.onWheelHandler}></input>
           <Person name={this.state.persons[0].name} age={this.state.persons[0].age} click={this.switchNameHandler.bind(this, faker.name.findName(), faker.random.number({max: 100}))}/>
           {/* <Person name={this.state.persons[1].name} age={this.state.persons[1].age} click={this.switchNameHandler.bind(this, faker.name.findName())}/> */}
