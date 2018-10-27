@@ -28,12 +28,31 @@ class App extends Component {
     }) 
   }
 
+  doubleClickHandler = () => {
+    console.log("doubleClickHandler");
+    this.setState({
+      persons: [
+        {name: "Sasha Vasikarla", age: 48},
+        {name: "Ryan Vasikarla", age: 3}
+      ]
+    }) 
+  }
 
+  onWheelHandler = () => {
+    console.log("onWheel Handler");
+    this.setState({
+      persons: [
+        {name: "Swetha Vasikarla", age: 48},
+        {name: "Ryan Vasikarla", age: 3}
+      ]
+    })     
+  }
   render() {
     return (
       <div className="App">
         <header className="App-header">
         <button onClick={this.switchNameHandler}>Click Me!!</button>
+        <input type="text" onDoubleClick={this.doubleClickHandler} onWheel={this.onWheelHandler}></input>
           <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
           <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
         </header>
