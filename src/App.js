@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import Event from './Person/Event';
 import faker from 'faker';
 
 var data = {
@@ -18,12 +19,11 @@ class App extends Component {
     ]
   }
 
-  switchNameHandler = () => {
+  switchNameHandler = (name, age) => {
     console.log("Switch Handler");
     this.setState({
       persons: [
-        {name: "Raj Vasikarla", age: 48},
-        {name: "Ryan Vasikarla", age: 3}
+        {name: name, age: age}
       ]
     }) 
   }
@@ -53,8 +53,9 @@ class App extends Component {
         <header className="App-header">
         <button onClick={this.switchNameHandler}>Click Me!!</button>
         <input type="text" onDoubleClick={this.doubleClickHandler} onWheel={this.onWheelHandler}></input>
-          <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-          <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
+          <Person name={this.state.persons[0].name} age={this.state.persons[0].age} click={this.switchNameHandler.bind(this, faker.name.findName(), faker.random.number({max: 100}))}/>
+          {/* <Person name={this.state.persons[1].name} age={this.state.persons[1].age} click={this.switchNameHandler.bind(this, faker.name.findName())}/> */}
+          <Event/>
         </header>
       </div>
     );
